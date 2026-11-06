@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-cream text-cobalt font-sans antialiased;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  ::selection {
+    background: #0a3c8c;
+    color: #fbf7ee;
+  }
+  :focus-visible {
+    outline: 2px solid #0a3c8c;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* Café-menu dotted leader between a title and its price */
+  .leader {
+    flex: 1 1 1.5rem;
+    min-width: 1.5rem;
+    border-bottom: 2px dotted #0a3c8c;
+    transform: translateY(-0.32em);
+  }
+  /* Small uppercase label — kept large enough to read comfortably */
+  .eyebrow {
+    @apply font-sans text-[12.5px] font-bold uppercase tracking-[0.14em];
+  }
+  .receipt-edge {
+    height: 14px;
+    background:
+      linear-gradient(-45deg, transparent 7px, #fbf7ee 0) 0 0 / 14px 14px repeat-x,
+      linear-gradient(45deg, transparent 7px, #fbf7ee 0) 0 0 / 14px 14px repeat-x;
+  }
+}
+
+@keyframes nest-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.nest-bob { animation: nest-bob 1.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nest-bob { animation: none; }
+}
